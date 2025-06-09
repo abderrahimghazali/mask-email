@@ -1,0 +1,28 @@
+{
+    "name": "mask-email",
+    "version": "1.0.0",
+    "description": "Simple utility to mask email addresses for privacy",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "scripts": {
+      "test": "node test.js"
+    },
+    "keywords": [
+      "email",
+      "mask",
+      "privacy",
+      "security",
+      "utility"
+    ],
+    "author": "Abderrahim GHAZALI",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/abderrahimghazali/mask-email.git"
+    },
+    "files": [
+      "index.js",
+      "index.d.ts",
+      "README.md"
+    ]
+  }
