@@ -1,5 +1,5 @@
 {
-    "name": "mask-email",
+    "name": "email-masker",
     "version": "1.0.0",
     "description": "Simple utility to mask email addresses for privacy",
     "main": "index.js",
@@ -18,7 +18,7 @@
     "license": "MIT",
     "repository": {
       "type": "git",
-      "url": "https://github.com/abderrahimghazali/mask-email.git"
+      "url": "git+https://github.com/abderrahimghazali/mask-email.git"
     },
     "files": [
       "index.js",

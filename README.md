@@ -81,74 +81,32 @@ MIT
 
 Pull requests welcome! Please ensure tests pass.
 
-// test.js
+### Running Tests
+
+```bash
+npm test
+```
+
+### Development
+
+To contribute to this project:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests for new functionality
+5. Ensure all tests pass
+6. Submit a pull request
+
+### Test File Structure
+
+The project includes comprehensive tests in `test.js`. You can run them with:
+
+```javascript
+// Example test structure
 const maskEmail = require('./index.js');
-
-function test(description, fn) {
-  try {
-    fn();
-    console.log(`✅ ${description}`);
-  } catch (error) {
-    console.log(`❌ ${description}`);
-    console.log(`   ${error.message}`);
-  }
-}
-
-function assertEqual(actual, expected, message) {
-  if (actual !== expected) {
-    throw new Error(`${message || 'Assertion failed'}: expected "${expected}", got "${actual}"`);
-  }
-}
-
-function assertThrows(fn, message) {
-  try {
-    fn();
-    throw new Error(`${message || 'Expected function to throw'}`);
-  } catch (error) {
-    if (error.message.includes('Expected function to throw')) {
-      throw error;
-    }
-    // Expected to throw, test passes
-  }
-}
-
-// Tests
-console.log('Running mask-email tests...\n');
 
 test('Basic email masking', () => {
   assertEqual(maskEmail('john@example.com'), 'j***@example.com');
 });
-
-test('Short email handling', () => {
-  assertEqual(maskEmail('a@b.co'), 'a@b.co');
-});
-
-test('Custom mask character', () => {
-  assertEqual(maskEmail('test@example.com', { maskChar: '#' }), 't###@example.com');
-});
-
-test('Custom unmasked start', () => {
-  assertEqual(maskEmail('hello@world.com', { unmaskedStart: 3 }), 'hel**@world.com');
-});
-
-test('Unmasked start and end', () => {
-  assertEqual(maskEmail('johndoe@test.com', { unmaskedStart: 2, unmaskedEnd: 2 }), 'jo***oe@test.com');
-});
-
-test('Domain masking', () => {
-  assertEqual(maskEmail('user@gmail.com', { maskDomain: true }), 'u***@g****.com');
-});
-
-test('Invalid email throws error', () => {
-  assertThrows(() => maskEmail('invalid-email'), 'Should throw for invalid email');
-});
-
-test('Empty string throws error', () => {
-  assertThrows(() => maskEmail(''), 'Should throw for empty email');
-});
-
-test('Non-string input throws error', () => {
-  assertThrows(() => maskEmail(null), 'Should throw for null input');
-});
-
-console.log('\nAll tests completed!');
+```
